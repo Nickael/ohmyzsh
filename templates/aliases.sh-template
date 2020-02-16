@@ -14,18 +14,6 @@ if hash code-insiders 2> /dev/null; then
     alias code="code-insiders"
 fi
 
-if hash z 2> /dev/null; then
-    alias vz="vi ~/.zshrc"
-else
-    alias z="vi ~/.zshrc"
-fi
-
-if hash b 2> /dev/null; then
-    alias vb="vi ~/.bashrc"
-else
-    alias b="vi ~/.bashrc"
-fi
-
 if hash apt 2>/dev/null; then
     alias i="sudo apt update && sudo apt install -y"
     alias r="sudo apt autoremove --purge"
@@ -50,6 +38,8 @@ alias rm="rm -v"
 alias ln="ln -v"
 
 alias h="vi ~/.zsh_history"
+alias vz="vi ~/.zshrc"
+alias vb="vi ~/.bashrc"
 alias va="vi ~/.aliases.sh"
 alias sz="source ~/.zshrc"
 alias vimrc="vi ~/.vimrc"
