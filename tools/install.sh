@@ -145,7 +145,7 @@ custom_setup_aliases() {
 	if [ -f ~/.aliases.sh-template ] || [ -h ~/.aliases.sh-template ]; then
 		if [ -e "$OLD_ALIASES" ]; then
 			OLD_OLD_ALIASES="${OLD_ALIASES}-$(date +%Y-%m-%d_%H-%M-%S)"
-			if[ -e "$OLD_OLD_ALIASES" ]; then
+			if [ -e "$OLD_OLD_ALIASES" ]; then
 				error "$OLD_OLD_ALIASES exists. Can't back up ${OLD_ALIASES}"
 				error "re-run the installer again in a couple of seconds"
 				exit 1
