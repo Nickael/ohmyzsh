@@ -73,7 +73,7 @@ plugins=(
     z
     themes
     git-flow
-    git-extra
+    git-extras
     zsh-autosuggestions
     zsh-syntax-highlighting
     )
