@@ -248,14 +248,27 @@ setup_shell() {
 
 custom_setup_prerequesites() {
 	# Set git aliases
+	echo "${BLUE}Setting common git aliases .${RESET}"
 	env git config --global alias.br branch && git config --global alias.co checkout && git config --global alias.ci commit && git config --global alias.st status
+
 	# Install ZSH auto completion Plugin
+	echo "${BLUE}Installing ${RESET}zsh-autosuggestions${BLUE}.${RESET}"
+	echo "${GREEN}"
 	git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+	echo "${RESET}\n-> zsh-autosuggestions ${BLUE}installation done${RESET}"
+
 	# Install ZSH color highlighting Plugin
+	echo "${BLUE}Installing ${RESET}zsh-syntax-highlighting${BLUE}.${RESET}"
+	echo "${GREEN}"
 	git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+	echo "${RESET}\n-> zsh-syntax-highlighting ${BLUE}installation done${RESET}"
+
 	# Install ZSH nicks's theme
+	echo "${BLUE}Installing ${RESET}nicks.zsh-theme${BLUE}.${RESET}"
+	echo "${GREEN}"
 	git clone https://github.com/Nickael/oh-my-zsh.custom.theme.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/themes/nicks
 	env ln -sv ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/themes/nicks/nicks.zsh-theme ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/themes/nicks.zsh-theme
+	echo "${RESET}\n-> nicks.zsh-theme ${BLUE}installation done${RESET}"
 }
 
 main() {
