@@ -34,13 +34,13 @@ Oh My Zsh is installed by running one of the following commands in your terminal
 #### via curl
 
 ```shell
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/nickael/ohmyzsh/master/tools/install.sh)"
 ```
 
 #### via wget
 
 ```shell
-sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+sh -c "$(wget -O- https://raw.githubusercontent.com/nickael/ohmyzsh/master/tools/install.sh)"
 ```
 
 #### Manual inspection
@@ -50,7 +50,7 @@ that by downloading the install script first, looking through it so everything l
 then running it:
 
 ```shell
-curl -Lo install.sh https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
+curl -Lo install.sh https://raw.githubusercontent.com/nickael/ohmyzsh/master/tools/install.sh
 sh install.sh
 ```
 
@@ -106,7 +106,7 @@ To use a different theme, simply change the value to match the name of your desi
 
 ```shell
 ZSH_THEME="agnoster" # (this is one of the fancy ones)
-# see https://github.com/ohmyzsh/ohmyzsh/wiki/Themes#agnoster
+# see https://github.com/nickael/ohmyzsh/wiki/Themes#agnoster
 ```
 
 _Note: many themes require installing the [Powerline Fonts](https://github.com/powerline/fonts) in order to render properly._
@@ -165,7 +165,7 @@ flag `--unattended` to the `install.sh` script. This will have the effect of not
 the default shell, and also won't run `zsh` when the installation has finished.
 
 ```shell
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/nickael/ohmyzsh/master/tools/install.sh)" "" --unattended
 ```
 
 #### Installing from a forked repository
@@ -196,7 +196,7 @@ REPO=apjanke/oh-my-zsh BRANCH=edge sh install.sh
 ##### 1. Clone the repository:
 
 ```shell
-git clone https://github.com/ohmyzsh/ohmyzsh.git ~/.oh-my-zsh
+git clone https://github.com/nickael/ohmyzsh.git ~/.oh-my-zsh
 ```
 
 ##### 2. *Optionally*, backup your existing `~/.zshrc` file:
