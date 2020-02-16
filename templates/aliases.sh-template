@@ -1,0 +1,30 @@
+alias l="ls"
+alias ll="ls -l"
+alias la="ls -la"
+alias a="ls -a"
+
+alias cp="cp -v"
+alias mv="mv -v"
+alias mkdir="mkdir -v"
+alias rm="rm -v"
+alias ln="ln -v"
+
+alias z="vi ~/.zshrc"
+alias b="vi ~/.bashrc"
+alias h="vi ~/.zsh_history"
+alias va="vi ~/.aliases.sh"
+alias sz="source ~/.zshrc"
+alias vimrc="vi ~/.vimrc"
+
+if hash vim 2> /dev/null; then
+    alias vi="vim"
+fi
+
+if hash docker 2> /dev/null; then
+    alias d="docker"
+fi
+if hash docker-compose 2> /dev/null; then
+    alias dk="docker-compose"
+fi
+
+alias q="exit"

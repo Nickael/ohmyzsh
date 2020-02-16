@@ -138,6 +138,36 @@ export ZSH=\"$ZSH\"
 	echo
 }
 
+custom_setup_aliases() {
+	echo "${BLUE}Looking for an existing aliases file...${RESET}"
+
+	OLD_ZSHRC=~/.aliases.sh-template.pre-oh-my-zsh
+	if [ -f ~/.aliases.sh-template ] || [ -h ~/.aliases.sh-template ]; then
+		if [ -e "$OLD_ALIASES" ]; then
+			OLD_OLD_ALIASES="${OLD_ALIASES}-$(date +%Y-%m-%d_%H-%M-%S)"
+			if[ -e "$OLD_OLD_ALIASES" ]; then
+				error "$OLD_OLD_ALIASES exists. Can't back up ${OLD_ALIASES}"
+				error "re-run the installer again in a couple of seconds"
+				exit 1
+			fi
+			mv "$OLD_ALIASES" "${OLD_OLD_ALIASES}"
+
+			echo "${YELLOW}Found old ~/.aliases.sh.pre-oh-my-zsh." \
+				"${GREEN}Backing up to ${OLD_OLD_ALIASES}${RESET}"
+		fi
+		echo "${YELLOW}Found ~/.aliases.sh.${RESET} ${GREEN}Backing up to ${OLD_ALIASES}${RESET}"
+		mv ~/.aliases.sh "$OLD_ALIASES"
+	fi
+
+	cp "$ZSH/templates/aliases.sh-template" ~/.aliases.sh
+	sed "/^export ZSH=/ c\\
+export ZSH=\"$ZSH\"
+" ~/.aliases.sh > ~/.aliases.sh-omztemp
+	mv -f ~/.aliases.sh-omztemp ~/.aliases.sh
+
+	echo
+}
+
 setup_shell() {
 	# Skip setup if the user wants or stdin is closed (not running interactively).
 	if [ $CHSH = no ]; then
@@ -216,6 +246,18 @@ setup_shell() {
 	echo
 }
 
+custom_setup_prerequesites() {
+	# Set git aliases
+	env git config --global alias.br branch && git config --global alias.co checkout && git config --global alias.ci commit && git config --global alias.st status
+	# Install ZSH auto completion Plugin
+	git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+	# Install ZSH color highlighting Plugin
+	git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+	# Install ZSH nicks's theme
+	git clone https://github.com/Nickael/oh-my-zsh.custom.theme.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/themes/nicks
+	env ln -sv ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/themes/nicks/nicks.zsh-theme ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/themes/nicks.zsh-theme
+}
+
 main() {
 	# Run as unattended if stdin is closed
 	if [ ! -t 0 ]; then
@@ -249,6 +291,8 @@ main() {
 
 	setup_ohmyzsh
 	setup_zshrc
+	custom_setup_aliases
+	custom_setup_prerequesites
 	setup_shell
 
 	printf "$GREEN"
