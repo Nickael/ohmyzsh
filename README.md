@@ -225,6 +225,13 @@ You must log out from your user session and log back in to see this change.
 
 Once you open up a new terminal window, it should load zsh with Oh My Zsh's configuration.
 
+#### 6. Disable Ubuntu taskbar
+
+```shell
+gsettings set org.gnome.shell.extensions.dash-to-dock dock-fixed false
+gsettings set org.gnome.shell.extensions.dash-to-dock autohide false
+```
+
 ### Installation Problems
 
 If you have any hiccups installing, here are a few common fixes.
