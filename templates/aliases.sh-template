@@ -27,6 +27,14 @@ elif hash yum 2>/dev/null; then
     alias u="sudo yum update && sudo yum upgrade"
 fi
 
+if hash code-insiders 2> /dev/null; then
+    alias code="code-insiders"
+    alias c="code"
+fi
+
+if hash synaptic 2> /dev/null; then
+    si="sudo synaptic"
+fi
 alias l="ls"
 alias ll="ls -l"
 alias la="ls -la"
