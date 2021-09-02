@@ -274,6 +274,8 @@ custom_setup_prerequesites() {
 	env ln -sv ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/themes/nicks/nicks.zsh-theme ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/themes/nicks.zsh-theme
 	# echo "${RESET}\n-> nicks.zsh-theme ${BLUE}installation done${RESET}"
 	echo "${RESET}"
+	touch ~/.z
+
 }
 
 main() {
