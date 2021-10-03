@@ -33,7 +33,7 @@ if hash code-insiders 2> /dev/null; then
 fi
 
 if hash synaptic 2> /dev/null; then
-    si="sudo synaptic"
+    alias si="sudo synaptic"
 fi
 alias l="ls"
 alias ll="ls -l"
