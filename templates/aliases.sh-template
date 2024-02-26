@@ -35,6 +35,34 @@ fi
 if hash synaptic 2> /dev/null; then
     alias si="sudo synaptic"
 fi
+
+if hash dpkg 2> /dev/null; then
+    alias di="sudo dpkg -i"
+fi
+# fancy ls / tree equivalent
+if hash exa 2> /dev/null; then
+    alias tree="exa --icons -T"
+    alias t="tree"
+    alias ls="exa --icons"
+fi
+# create angular and yarn alias if requirements are met
+if hash node 2> /dev/null; then
+    if hash ng 2> /dev/null; then
+        alias ns="ng s"
+    fi
+
+    if hash npm 2> /dev/null; then
+        alias ni="npm i"
+    fi
+
+    if hash yarn 2> /dev/null; then
+        alias yi="yarn install"
+        alias ya="yarn add"
+        alias yo="yarn outdated"
+    fi
+fi
+
+
 alias l="ls"
 alias ll="ls -l"
 alias la="ls -la"
@@ -52,13 +80,8 @@ alias vb="vi ~/.bashrc"
 alias va="vi ~/.aliases.sh"
 alias sz="source ~/.zshrc"
 alias vimrc="vi ~/.vimrc"
-alias di="sudo dpkg -i"
-alias ns="ng s"
-alias yi="yarn install"
-alias ya="yarn add"
-alias yo="yarn outdated"
-alias ni="npm i"
 
 alias q="exit"
+
 alias po="sudo poweroff"
 alias re="sudo reboot"
